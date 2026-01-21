@@ -17,13 +17,13 @@ function Services() {
     ]
 
     return (
-        <div className='services w-full  px-10 py-40'>
+        <div className='services w-full  md:px-20 px-10 py-40'>
             <h2 className='text-6xl font-bold mb-4 '>Nos Services</h2>
             <div className="fish-industrie py-10">
                 <h3 className='text-2xl text-gray-700 font-semibold mb-2 underline'>Produits de la mer & Pêche</h3>
                 <div className="two-boxes flex flex-col md:flex-row gap-6 mt-10">
                     <div className="box1 bg-blue-50/50 p-6 rounded-lg mb-6">
-                        <p className='text-3xl   text-gray-700'>
+                        <p className='text-3xl max-[415px]:text-2xl   text-gray-700'>
                             Un pôle stratégique incarnant l’excellence et l’innovation dans le secteur halieutique,
                             couvrant l’ensemble de la chaîne de valeur :
                             pêche, approvisionnement, transformation, congélation, logistique, distribution et export.
@@ -31,7 +31,7 @@ function Services() {
                     </div>
                     <div className="box2 bg-blue-50/50 p-6 rounded-lg mb-6">
 
-                        <p className='text-3xl text-gray-700'>
+                        <p className='text-3xl max-[415px]:text-2xl text-gray-700'>
                             Ce pôle s’appuie sur des entreprises disposant de plus de 35 années d’expertise,
                             garantissant des produits conformes aux plus hauts standards de qualité,
                             traçabilité et sécurité alimentaire,
@@ -66,7 +66,7 @@ function Services() {
             <div className="immobilier-industrie  py-10 gap-20 flex flex-col items-start justify-start">
                 <h3 className='text-2xl text-gray-700 font-semibold mb-2 underline'>Immobilier</h3>
                 <div className="imo w-full px-5 md:px-10 flex md:flex-row flex-col items-start justify-between md:gap-20 gap-10">
-                    <p className="md:w-2/3 text-3xl text-gray-700">
+                    <p className="md:w-2/3 max-[415px]:text-2xl text-3xl text-gray-700">
                         À travers NAFAT IMMO, Holding NAFAT développe,
                         commercialise et gère des actifs immobiliers destinés à la vente et à la location,
                         répondant aux besoins des particuliers et des professionnels.

@@ -33,3 +33,8 @@ body {
   /* overflow-x: hidden; */
   min-height: 200vh;
 }
+
+@utility mask-linear-fade {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
