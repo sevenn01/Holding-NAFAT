@@ -10,6 +10,8 @@ import { use } from "react";
 import Infos from "@/components/sections/Infos";
 import Contact from "@/components/sections/Contact";
 import Blogs from "@/components/sections/Blogs";
+import Picts from "@/components/sections/Picts";
+import Qualite from "@/components/sections/qualite";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,8 +24,10 @@ export default function Home() {
     <main className="main relative w-full h-full flex flex-col items-center justify-center bg-background text-foreground overflow-hidden">
       <Hero />
       <About />
-      <Services />
+      <Picts />
       <Infos />
+      <Services />
+      <Qualite />
       <Blogs />
       <Contact />
     </main>

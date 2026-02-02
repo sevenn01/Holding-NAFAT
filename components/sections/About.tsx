@@ -14,7 +14,7 @@ function About() {
 
 
   return (
-    <div className="about-section   w-full  md:px-20 px-10 py-40 flex max-[886px]:flex-col flex-row items-start justify-between gap-10 text-gray-800 overflow-x-hidden">
+    <div id="about" className="about-section   w-full  md:px-20 px-10 py-40 flex max-[886px]:flex-col flex-row items-start justify-between gap-10 text-gray-800 overflow-x-hidden">
 
       {/* max-[886px]:w-[95%] w-[60%] max-[800px]:text-[6vw] text-5xl */}
       <h2 className="md:w-[20rem] max-[415px]:text-5xl text-6xl font-bold mb-4">À propos de Holding NAFAT</h2>

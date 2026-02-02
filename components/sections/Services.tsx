@@ -1,13 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 //import im01 from '@/public/images/im01.jpg'
 
 function Services() {
 
     const fishIndustrieCompanies = [
-        { name: "ASMAK RAHAL", description: "Leader dans l’import, l’export et la commercialisation de produits de la mer congelés", content: 'Acteur majeur de l’importation, de l’exportation et de la commercialisation de produits de la mer.' },
-        { name: "PREST CONG", description: "Spécialiste du poisson congelé et du négoce international", content: "Exploitation d’unités de froid et de congélation pour la conservation des produits alimentaires." },
-        { name: "Marchés aux poissons", description: "Agadir & Tiznit Point de distribution central pour les produits frais et surgelés.", content: "Exploitation d’unités de froid et de congélation pour la conservation des produits alimentaires." }
+        { link: "/Company/1", img: "/asmakRahal.png", name: "ASMAK RAHAL", description: "Leader dans l’import, l’export et la commercialisation de produits de la mer congelés", content: 'Acteur majeur de l’importation, de l’exportation et de la commercialisation de produits de la mer.' },
+        { link: "/Company/2", img: "PREST CONG", name: "PREST CONG", description: "Spécialiste du poisson congelé et du négoce international", content: "Exploitation d’unités de froid et de congélation pour la conservation des produits alimentaires." },
+        { link: "/Company/3", img: "POINT VENTEs", name: "Marchés aux poissons", description: "Agadir & Tiznit Point de distribution central pour les produits frais et surgelés.", content: "Exploitation d’unités de froid et de congélation pour la conservation des produits alimentaires." }
     ];
 
     const immoPhase = [
@@ -17,7 +18,7 @@ function Services() {
     ]
 
     return (
-        <div className='services w-full  md:px-20 px-10 py-40'>
+        <div id='services' className='services w-full  md:px-20 px-10 py-40'>
             <h2 className='text-6xl font-bold mb-4 '>Nos Services</h2>
             <div className="fish-industrie py-10">
                 <h3 className='text-2xl text-gray-700 font-semibold mb-2 underline'>Produits de la mer & Pêche</h3>
@@ -47,17 +48,50 @@ function Services() {
                                 <span className=" underline">{company.name}</span> - {company.description}
                                 {/* w-[${index}/6] */}
                             </p>
-                            <div className="ticket w-[95%] py-5 p-3 rounded-2xl bg-white drop-shadow-[0_0_5px_rgba(0,0,0,.1)] flex flex-col gap-10">
-                                <div className="logo w-[100%] h-[200px] rounded-2xl   bg-blue-50/50 "></div>
-                                <div className="p-2 flex flex-col gap-2">
-                                    <div className="text-lg font-semibold flex items-center justify-between">
-                                        {company.name}
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="text-black  mt-2 w-4 rotate-269" fill="none" viewBox="0 0 20 24" stroke="currentColor" strokeWidth={4}>
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                                        </svg>
+                            <div className="ticket w-[95%] rounded-2xl bg-white drop-shadow-[0_0_5px_rgba(0,0,0,.1)] flex flex-col gap-10 transition-all hover:scale-[1.02] duration-300">
+                                {company.link ? (
+                                    <Link href={company.link} className='w-full h-full py-5 p-3 flex flex-col gap-10 cursor-pointer'>
+                                        <div className="logo w-[100%] h-[200px] rounded-2xl flex items-center justify-center bg-blue-50/50 ">
+                                            {
+                                                company.img === "/asmakRahal.png" ? (
+                                                    <Image width={200} height={170} src={`${company.img}`} className='mix-blend-luminosity' alt="asmakRahal" />
+                                                ) : (
+                                                    <p className='text-2xl font-black flex items-center justify-between'>{company.img}</p>
+                                                )
+                                            }
+                                        </div>
+                                        <div className="p-2 flex flex-col gap-2">
+                                            <div className="text-lg font-semibold flex items-center justify-between">
+                                                {company.name}
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="text-black  mt-2 w-4 -rotate-90" fill="none" viewBox="0 0 20 24" stroke="currentColor" strokeWidth={4}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                                </svg>
+                                            </div>
+                                            <p className='w-[95%] text-light font-sans text-gray-600 font-light leading-5'>{company.content}</p>
+                                        </div>
+                                    </Link>
+                                ) : (
+                                    <div className='w-full h-full py-5 p-3 flex flex-col gap-10'>
+                                        <div className="logo w-[100%] h-[200px] rounded-2xl flex items-center justify-center bg-blue-50/50 ">
+                                            {
+                                                company.img === "/asmakRahal.png" ? (
+                                                    <Image width={200} height={170} src={`${company.img}`} className='mix-blend-luminosity' alt="asmakRahal" />
+                                                ) : (
+                                                    <p className='text-2xl font-black flex items-center justify-between'>{company.img}</p>
+                                                )
+                                            }
+                                        </div>
+                                        <div className="p-2 flex flex-col gap-2">
+                                            <div className="text-lg font-semibold flex items-center justify-between">
+                                                {company.name}
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="text-black  mt-2 w-4 -rotate-90" fill="none" viewBox="0 0 20 24" stroke="currentColor" strokeWidth={4}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                                </svg>
+                                            </div>
+                                            <p className='w-[95%] text-light font-sans text-gray-600 font-light leading-5'>{company.content}</p>
+                                        </div>
                                     </div>
-                                    <p className='w-[95%] text-light font-sans text-gray-600 font-light leading-5'>{company.content}</p>
-                                </div>
+                                )}
                             </div>
                         </div>
                     ))}
@@ -77,15 +111,15 @@ function Services() {
                 <div className="relative w-full md:px-10 px-5 py-10 mt-10 flex md:flex-row items-center justify-between flex-col md:gap-10 gap-10 overflow-hidden ">
                     {/* <Image src="/building03.png" alt="" className='absolute scale-200 left-1/2 -translate-x-1/2 opacity-30 mix-blend-luminosity' width={500} height={500} /> */}
 
-                    <div className="cards md:w-2/3 bg-amber-200 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  ">
+                    <div className="cards md:w-2/3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  ">
                         {
                             immoPhase.map((immo, index) => (
-                                <div key={index} className="im w-full relative">
+                                <div key={index} className="im w-full p-2  relative">
                                     <div className="relative overflow-hidden bg-blue-500 w-full h-[200px] ">
                                         <Image src={immo.img} className="absolute top-1/2 left-1/3 scale-[1.8]  -translate-x-1/2 -translate-y-1/2 object-contain  mix-blend-luminosity hover:mix-blend-normal w-[350px] h-[500px]" alt="dd" width={300} height={500} />
                                     </div>
-                                    <h5 className="text-xl font-semibold mt-4">{(immo as any)[`phase${index + 1}`]}</h5>
-                                    <p>{immo.content}</p>
+                                    <h5 className="text-xl leading-5 font-semibold mt-4 mb-5">{(immo as any)[`phase${index + 1}`]}</h5>
+                                    <p className="text-lg leading-5 font-sans font-light text-gray-600 ">{immo.content}</p>
                                 </div>
                             ))
                         }
@@ -93,7 +127,9 @@ function Services() {
 
                     </div>
                     <div className="ticket md:w-[400px] w-[95%]  py-5 p-3 rounded-2xl bg-white drop-shadow-[0_0_5px_rgba(0,0,0,.1)] flex flex-col gap-10">
-                        <div className="logo h-[200px] rounded-2xl   bg-blue-50/50 "></div>
+                        <div className="logo h-[200px] p-2 rounded-2xl flex items-center justify-center mix-blend-luminosity overflow-hidden  bg-blue-50/50 ">
+                            <Image src="/immo.png" alt="logo" width={170} height={170} />
+                        </div>
                         <div className="p-2 flex flex-col gap-2">
                             <div className="text-lg font-semibold flex items-center justify-between">
                                 NAFAT IMMO

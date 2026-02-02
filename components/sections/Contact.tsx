@@ -8,7 +8,7 @@ export default function Contact() {
             <img className='absolute --z-10 w-[300rem] top-0 left-0' src="/line01.svg" alt="line" />
 
             <h2 className=" relative z-10 max-[415px]:text-5xl text-6xl font-bold text-gray-800 mb-5">Contact</h2>
-            <div className="forms max-[700px]:p-5 p-10 bg-blue-100/30 backdrop-blur-xl  rounded-lg mt-20 flex flex-row max-[1000px]:flex-col items-center justify-between gap-10 overflow-hidden">
+            <div id="contact" className="forms max-[700px]:p-5 p-10 bg-white/30 backdrop-blur-xl  rounded-lg mt-20 flex flex-row max-[1000px]:flex-col items-center justify-between gap-10 overflow-hidden">
 
                 <div className="max-[1000px]:w-full w-2/3 h-full  max-[700px]:p-5 p-10  rounded-lg">
 

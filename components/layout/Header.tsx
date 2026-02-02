@@ -1,26 +1,93 @@
 'use client';
-import React, { useState } from 'react'
+import { useGSAP } from '@gsap/react';
+import React, { useEffect, useRef, useState } from 'react'
+import gsap from 'gsap';
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import Image from 'next/image';
+import Link from 'next/link';
+
+gsap.registerPlugin(ScrollToPlugin);
 
 function Header() {
+    const mobileMenuRef = useRef<HTMLDivElement>(null);
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const cardRef = useRef<HTMLDivElement>(null);
+    const tweenRef = useRef<gsap.core.Tween | null>(null);
+
+    const rahalEvents = [
+        { img: '/asmakRahal.png', title: 'ASMAK RAHAL', description: 'Leader de l\'exportation maritime internationale.' },
+        { img: '/immo.png', title: 'IMMO NAFAT', description: 'Expertise immobilière et projets d\'exception.' },
+        { img: '/owner.png', title: 'PREST CONG', description: 'Maîtrise technologique de la chaîne du froid.' },
+        { img: '/owner.png', title: 'SEA FOOD MARKET', description: 'La fraîcheur de l\'océan à votre table.' },
+        { img: '/owner.png', title: 'NAFAT HOLDING', description: 'Vision stratégique et synergie multisectorielle.' },
+    ]
+    // Duble the events for seamless looping
+    const events = [...rahalEvents, ...rahalEvents];
 
     const [mobileMenu, setMobileMenu] = useState(false);
     const handleMobileMenu = () => {
         setMobileMenu(!mobileMenu);
         //alert(mobileMenu);
     }
+    const [cardWidth, setCardWidth] = useState(0);
+
+    // Measure card width for responsive animation
+    useEffect(() => {
+        const measure = () => {
+            if (!cardRef.current) return;
+            setCardWidth(cardRef.current.offsetWidth + 20); // 20px is the gap
+        };
+
+        measure(); // initial
+        window.addEventListener("resize", measure);
+
+        return () => window.removeEventListener("resize", measure);
+    }, []);
+
+    useGSAP(() => {
+        if (!carouselRef.current || !cardWidth) return;
+
+        const totalWidth = cardWidth * rahalEvents.length;
+
+        // Reset position
+        gsap.set(carouselRef.current, { x: 0 });
+
+        // Create seamless loop
+        tweenRef.current = gsap.to(carouselRef.current, {
+            x: -totalWidth,
+            duration: 20, // Adjust speed here
+            ease: "none",
+            repeat: -1,
+        });
+
+        return () => {
+            tweenRef.current?.kill();
+        };
+    }, { dependencies: [cardWidth] });
+
+    const scrollToSection = (sectionId: string) => {
+        const element = document.querySelector(sectionId);
+        if (element) {
+            gsap.to(window, {
+                duration: 1.5,
+                scrollTo: { y: element, autoKill: true },
+                ease: "power4.inOut",
+            });
+        }
+    };
     return (
         <div>
             <div className="header relative w-full p-5  overflow-hidden">
                 <div className="header-content px-10  py-5 max-[880px]:hidden flex flex-row items-center justify-between">
-                    <div className="header-logo font-black text-5xl bg-linear-200 from-blue-500 from-05% to-blue-200 text-transparent bg-clip-text">
+                    <div className=" header-logo font-black text-5xl bg-linear-200 from-blue-500 from-05% to-blue-200 text-transparent bg-clip-text">
                         NH
                     </div>
                     <div className="header-menu md:flex  flex-row items-center justify-between">
                         <ul className="flex flex-row items-center justify-between gap-10">
-                            <li><a className='text-xl text-gray-500 font-medium hover:text-blue-500 transition duration-300' href="#">Home</a></li>
-                            <li><a className='text-xl text-gray-500 font-medium hover:text-blue-500 transition duration-300' href="#">About</a></li>
-                            <li><a className='text-xl text-gray-500 font-medium hover:text-blue-500 transition duration-300' href="#">Services</a></li>
-                            <li><a className='text-xl text-gray-500 font-medium hover:text-blue-500 transition duration-300' href="#">Blog</a></li>
+                            <li><a className='text-xl font-medium hover:text-blue-500 transition duration-300' href="/">Home</a></li>
+                            <li><a onClick={(e) => { e.preventDefault(); scrollToSection('#about') }} className='text-xl font-medium hover:text-blue-500 transition duration-300' href="#about">About</a></li>
+                            <li><a className='text-xl font-medium hover:text-blue-500 transition duration-300' href="/Services">Services</a></li>
+                            <li><a className='text-xl font-medium hover:text-blue-500 transition duration-300' href="/Blog">Blog</a></li>
                         </ul>
                     </div>
                     <div className='header-contact '>
@@ -31,63 +98,97 @@ function Header() {
                                         hover:bg-[position:50%_80%]
                                         transition-all duration-300 ease-in-out
                                    ">
-                            <button className="btn btn-outline cursor-pointer px-10 py-2 rounded-[12px] font-bold text-gray-500 bg-white hover:text-blue-500 transition duration-300">Contact</button>
+                            <button className="btn btn-outline cursor-pointer px-10 py-2 rounded-[12px] font-bold text-blue-500 bg-white hover:text-blue-500 transition duration-300">
+                                <Link href="/Contact">Contact</Link></button>
                         </div>
                     </div>
 
 
                 </div>
 
-                {/* Mobile View */}
-                <div className={`
-                    mobile-view fixed max-[880px]:flex hidden w-full bg-blue-50/20 backdrop-blur-sm  top-0 left-0 px-10 py-5 z-909  flex-row items-center justify-between  
-                    ${mobileMenu ? 'block' : 'hidden'}
-                    `}>
-                    <div className={`
-                        header-logo font-black text-5xl bg-linear-200 from-blue-500 from-05% to-blue-200 text-transparent bg-clip-text
-                        `}>
-                        NH
-                    </div>
-                    <div
-                        className={`toggle-menu relative w-10 h-10   flex flex-row z-9990
-                            before:content-[''] before:w-10 before:h-2 before:absolute before:top-5 before:left-0 before:bg-blue-500 
-                            before:rounded-full after:content-[''] after:w-10 after:h-2 after:bg-blue-500 after:rounded-full  after:absolute after:top-2 after:left-1 
-                            before:z-10 after:z-10 group before:group-hover:bg-blue-500 after:group-hover:left-0 cursor-pointer transition-all duration-300 ease-in-out
-                            ${mobileMenu ? 'before:rotate-45 after:-rotate-45 after:top-5 after:-translate-x-1 after:bg-blue-500 before:bg-blue-500 ' : 'after:rotate-0 before:rotate-0 after:top-2 after:translate-x-0'}`}
-                        onClick={handleMobileMenu}>
-
-                    </div>
-                </div>
-                {/* just toggle menu */}
+                {/* Toggle Button Container */}
                 <div
-                    className={`toggle-menu fixed w-10 h-10   flex flex-row items-end z-999099  top-6 right-10
-                            before:content-[''] before:w-10 before:h-2 before:absolute before:top-5 before:left-0 before:bg-blue-500 
-                            before:rounded-full after:content-[''] after:w-10 after:h-2 after:bg-blue-500 after:rounded-full  after:absolute after:top-2 after:left-1 
-                            before:z-10 after:z-10 group before:group-hover:bg-blue-500 after:group-hover:left-0 cursor-pointer transition-all duration-300 ease-in-out
-                            ${mobileMenu ? 'before:rotate-45 after:-rotate-45 after:top-5 after:-translate-x-1 after:bg-blue-100 before:bg-blue-100 fixed' : 'hidden after:rotate-0 before:rotate-0 after:top-2 after:translate-x-0'}
-                            max-[880px]:block hidden
-                            `}
-                    onClick={handleMobileMenu}>
-
+                    className="fixed top-8 right-8 z-[1000] max-[880px]:flex hidden flex-col items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg border border-blue-50 cursor-pointer transition-all duration-300 active:scale-95"
+                    onClick={handleMobileMenu}
+                >
+                    <div className="relative w-6 h-5 flex flex-col justify-between items-center">
+                        <span className={`w-full h-0.5 bg-blue-500 rounded-full transition-all duration-300 origin-left ${mobileMenu ? 'rotate-45 translate-x-1' : ''}`}></span>
+                        <span className={`w-full h-0.5 bg-blue-500 rounded-full transition-all duration-300 ${mobileMenu ? 'opacity-0 scale-0' : ''}`}></span>
+                        <span className={`w-full h-0.5 bg-blue-500 rounded-full transition-all duration-300 origin-left ${mobileMenu ? '-rotate-45 translate-x-1' : ''}`}></span>
+                    </div>
                 </div>
-                {/*  bg-blue-500 z-999 bg-linear-to-tr from-blue-300 from-10% to-blue-700 */}
-                <div className={` mobile-menu  max-[880px]:flex hidden h-[calc(100vh)] px-20 py-20  fixed top-0  w-full transition-all duration-800 ease-out 
-                     bg-white z-999 flex-col items-center justify-center gap-30
-                    ${mobileMenu ? 'left-0' : 'left-[100%]'}`}>
-                    <div className="header-content px-10 font-black text-5xl text-gray-700 flex flex-col items-center justify-center">NAFAT HOLDING</div>
-                    <ul className="w-full  flex flex-col items-start justify-center gap-6">
-                        <li className='flex flex-row items-center justify-between w-full'><a className='text-3xl text-gray-400 font-bold hover:underline transition-all duration-300' href="#">Home</a><div className="w-10 h-10 text-2xl font-bold text-gray-400">01</div></li>
-                        <li className='flex flex-row items-center justify-between w-full'><a className='text-3xl text-gray-400 font-bold hover:underline transition-all duration-300' href="#">About</a><div className="w-10 h-10 text-2xl font-bold text-gray-400">02</div></li>
-                        <li className='flex flex-row items-center justify-between w-full'><a className='text-3xl text-gray-400 font-bold hover:underline transition-all duration-300' href="#">Services</a><div className="w-10 h-10 text-2xl font-bold text-gray-400">03</div></li>
-                        <li className='flex flex-row items-center justify-between w-full'><a className='text-3xl text-gray-400 font-bold hover:underline transition-all duration-300' href="#">Blog</a><div className="w-10 h-10 text-2xl font-bold text-gray-400">04</div></li>
-                        <li className='flex flex-row items-center justify-between w-full'><a className='text-3xl text-gray-400 font-bold hover:underline transition-all duration-300' href="#">Contact</a><div className="w-10 h-10 text-2xl font-bold text-gray-400">05</div></li>
-                    </ul>
-                    <div className="footer-mobile">
-                        <div className="footer-mobile-content text-gray-400 font-light">
-                            NAFAT HOLDING © 2026
+
+                {/* Mobile Menu Overlay */}
+                <div className={`mobile-menu fixed top-0 w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start py-20 px-10 overflow-hidden
+                    ${mobileMenu ? 'left-0' : 'left-full'}`}>
+
+                    <div className="w-full flex justify-between items-center mb-16">
+                        <div className="font-black text-4xl bg-linear-200 from-blue-500 to-blue-200 text-transparent bg-clip-text">NH</div>
+                    </div>
+
+                    <div className="w-full flex flex-col gap-10">
+                        <div className="text-gray-400 text-xs font-bold tracking-[0.3em] uppercase mb-4 opacity-50">Navigation</div>
+                        <ul className="flex flex-col gap-8">
+                            {[
+                                { name: 'Home', href: '/', num: '01' },
+                                { name: 'About', href: '#about', num: '02', scroll: true },
+                                { name: 'Services', href: '/Services', num: '03' },
+                                { name: 'Blog', href: '/Blog', num: '04' },
+                                { name: 'Contact', href: '#contact', num: '05', scroll: true }
+                            ].map((item, i) => (
+                                <li key={i} className="group overflow-hidden">
+                                    <div className={`flex items-end justify-between transition-all duration-500 delay-[${i * 100}ms] ${mobileMenu ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+                                        <a
+                                            href={item.href}
+                                            onClick={(e) => {
+                                                if (item.scroll) {
+                                                    e.preventDefault();
+                                                    scrollToSection(item.href);
+                                                }
+                                                setMobileMenu(false);
+                                            }}
+                                            className="text-5xl font-bold text-gray-800 hover:text-blue-500 transition-colors duration-300"
+                                        >
+                                            {item.name}
+                                        </a>
+                                        <span className="text-gray-300 font-mono text-lg mb-2">{item.num}</span>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="absolute bottom-10 left-10 right-10 flex flex-col gap-8">
+                        <div className="h-[1px] w-full bg-gray-100"></div>
+                        <div className="flex justify-between items-center text-gray-400 text-sm">
+                            <span>NAFAT HOLDING © 2026</span>
+                            <div className="flex gap-4">
+                                <span className="hover:text-blue-500 cursor-pointer transition-colors">LinkedIn</span>
+                                <span className="hover:text-blue-500 cursor-pointer transition-colors">Instagram</span>
+                            </div>
+                        </div>
+
+                        {/* Mobile Carousel Integration */}
+                        <div className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-white p-3 shadow-sm">
+                            <div ref={carouselRef} className="carousel flex items-start justify-start gap-4">
+                                {events.map((event, index) => (
+                                    <div
+                                        key={index}
+                                        ref={index === 0 ? cardRef : null}
+                                        className="event w-[280px] h-[80px] bg-gray-50/50 rounded-xl p-3 flex items-center gap-4 shrink-0 overflow-hidden"
+                                    >
+                                        <div className="relative w-14 h-14 bg-white rounded-lg p-1 shrink-0">
+                                            <Image src={event.img} alt={event.title} fill className="object-contain" />
+                                        </div>
+                                        <div className="overflow-hidden">
+                                            <h4 className="text-sm font-bold text-gray-800 truncate">{event.title}</h4>
+                                            <p className="text-[10px] text-gray-400 line-clamp-2 leading-tight">{event.description}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                    <img className='absolute -z-10 w-[200rem] top-60 left-0 blur-xl ' src="/line01.svg" alt="" />
                 </div>
             </div>
         </div>
