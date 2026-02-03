@@ -144,7 +144,7 @@ function Services() {
 
 
                     </div>
-                    <div className="ticket md:w-[400px] w-[95%]  py-5 p-3 rounded-2xl bg-white drop-shadow-[0_0_5px_rgba(0,0,0,.1)] flex flex-col gap-10">
+                    <Link href="/Company/4" className="ticket md:w-[400px] w-[95%]  py-5 p-3 rounded-2xl bg-white drop-shadow-[0_0_5px_rgba(0,0,0,.1)] flex flex-col gap-10">
                         <div className="logo h-[200px] p-2 rounded-2xl flex items-center justify-center mix-blend-luminosity overflow-hidden  bg-blue-50/50 ">
                             <Image src="/immo.png" alt="logo" width={170} height={170} />
                         </div>
@@ -157,7 +157,7 @@ function Services() {
                             </div>
                             <p className='w-[95%] text-light font-sans text-gray-600 font-light leading-5'>Développement, vente et location de biens immobiliers.</p>
                         </div>
-                    </div>
+                    </Link>
 
                 </div>
 
