@@ -50,18 +50,18 @@ function MentionLegal() {
                         <h2 className="text-2xl font-bold text-[#0a2e5c] mb-4">2. Hébergement</h2>
                         <div className="space-y-2 leading-relaxed">
                             <p>Le site est hébergé par :</p>
-                            <p><strong>Nom de l'hébergeur :</strong> [Nom de l'hébergeur]</p>
-                            <p><strong>Adresse :</strong> [Adresse de l'hébergeur]</p>
-                            <p><strong>Téléphone :</strong> [Téléphone de l'hébergeur]</p>
+                            <p><strong>Nom de l&apos;hébergeur :</strong> [Nom de l&apos;hébergeur]</p>
+                            <p><strong>Adresse :</strong> [Adresse de l&apos;hébergeur]</p>
+                            <p><strong>Téléphone :</strong> [Téléphone de l&apos;hébergeur]</p>
                         </div>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-bold text-[#0a2e5c] mb-4">3. Propriété intellectuelle</h2>
                         <p className="leading-relaxed">
-                            L'ensemble de ce site relève de la législation marocaine et internationale sur le droit d'auteur et la propriété intellectuelle.
+                            L&apos;ensemble de ce site relève de la législation marocaine et internationale sur le droit d&apos;auteur et la propriété intellectuelle.
                             Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
-                            La reproduction de tout ou partie de ce site sur un support électronique quel qu'il soit est formellement interdite sauf autorisation expresse du directeur de la publication.
+                            La reproduction de tout ou partie de ce site sur un support électronique quel qu&apos;il soit est formellement interdite sauf autorisation expresse du directeur de la publication.
                         </p>
                     </section>
 

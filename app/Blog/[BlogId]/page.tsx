@@ -1,21 +1,11 @@
 "use client"
 import { useEffect, useState, use } from 'react'
-import content from '../../content'
+import Link from 'next/link'
+import content, { BlogPost } from '../../content'
 import RelatedBlogs from '../RelatedBlogs'
 import Skeleton from '@/components/ui/skeleton'
 
-// Define the structure of the blog post content
-interface BlogPost {
-    id: number
-    title: string
-    description: string
-    date: string
-    readTime: string
-    category: string
-    image: string
-    video: string
-    content: string
-}
+//BlogPost interface is now imported from content.ts
 
 function Page({ params }: { params: Promise<{ BlogId: string }> }) {
     const { BlogId } = use(params)
@@ -31,7 +21,7 @@ function Page({ params }: { params: Promise<{ BlogId: string }> }) {
                         return;
                     }
                     const id = parseInt(BlogId)
-                    const foundArticle = content.find((post: any) => post.id === id)
+                    const foundArticle = content.find((post) => post.id === id)
 
                     if (foundArticle) {
                         setArticle(foundArticle)
@@ -73,7 +63,7 @@ function Page({ params }: { params: Promise<{ BlogId: string }> }) {
         return (
             <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
                 <h2 className="text-2xl font-bold">Article not found</h2>
-                <a href="/Blog" className="text-primary hover:underline">Return to Blog</a>
+                <Link href="/Blog" className="text-primary hover:underline">Return to Blog</Link>
             </div>
         )
     }
@@ -81,7 +71,7 @@ function Page({ params }: { params: Promise<{ BlogId: string }> }) {
     return (
         <article className="max-w-7xl mx-auto px-10 sm:px-6 lg:px-8 pt-20 pb-20 animate-in fade-in duration-700 slide-in-from-bottom-4">
             {/* Back Link */}
-            <a
+            <Link
                 href="/Blog"
                 className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors mb-8 group"
             >
@@ -101,7 +91,7 @@ function Page({ params }: { params: Promise<{ BlogId: string }> }) {
                     <path d="M19 12H5" />
                 </svg>
                 Retour au blog
-            </a>
+            </Link>
 
             {/* Header Section */}
             <header className=" mb-12 space-y-6">

@@ -11,7 +11,7 @@ function Qualite() {
                 <div className=" max-[1102px]:text-[5.5vw] max-[415px]:text-2xl max-[415px]:leading-8 leading-11 md:leading-16 text-5xl text-gray-700 ">
                     Holding NAFAT place la qualité, la conformité réglementaire et la durabilité au cœur de ses activités.
                     Le groupe applique des standards stricts en matière de sécurité alimentaire,
-                    de traçabilité et de respect de l’environnement,
+                    de traçabilité et de respect de l&apos;environnement,
                     en cohérence avec les réglementations nationales et internationales.
                 </div>
                 <div className="icons  flex flex-row items-center justify-center md:gap-20 gap-10 max-[480px]:gap-0">

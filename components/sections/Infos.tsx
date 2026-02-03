@@ -6,10 +6,10 @@ function Infos() {
 
 
     const chiffres = [
-        { title: '35+', description: 'Années d’expertise dans les produits de la mer' },
+        { title: '35+', description: 'Années d&apos;expertise dans les produits de la mer' },
         { title: '3', description: 'Navires de pêche opérés par ASMAK RAHAL' },
         { title: 'Multi-villes', description: 'Présence au Maroc, notamment à Agadir et Tiznit' },
-        { title: 'International', description: 'Exportations vers l’Europe, le Japon et d’autres marchés' },
+        { title: 'International', description: 'Exportations vers l&apos;Europe, le Japon et d&apos;autres marchés' },
         { title: 'Intégrée', description: 'Chaîne de valeur conforme aux standards nationaux et internationaux' },
     ]
 

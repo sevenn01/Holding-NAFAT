@@ -3,15 +3,31 @@ import Image from 'next/image'
 import Link from 'next/link'
 //import im01 from '@/public/images/im01.jpg'
 
+interface Company {
+    link: string;
+    img: string;
+    name: string;
+    description: string;
+    content: string;
+}
+
+interface ImmoPhaseItem {
+    img: string;
+    phase1?: string;
+    phase2?: string;
+    phase3?: string;
+    content: string;
+}
+
 function Services() {
 
-    const fishIndustrieCompanies = [
-        { link: "/Company/1", img: "/asmakRahal.png", name: "ASMAK RAHAL", description: "Leader dans l’import, l’export et la commercialisation de produits de la mer congelés", content: 'Acteur majeur de l’importation, de l’exportation et de la commercialisation de produits de la mer.' },
-        { link: "/Company/2", img: "PREST CONG", name: "PREST CONG", description: "Spécialiste du poisson congelé et du négoce international", content: "Exploitation d’unités de froid et de congélation pour la conservation des produits alimentaires." },
-        { link: "/Company/3", img: "POINT VENTEs", name: "Marchés aux poissons", description: "Agadir & Tiznit Point de distribution central pour les produits frais et surgelés.", content: "Exploitation d’unités de froid et de congélation pour la conservation des produits alimentaires." }
+    const fishIndustrieCompanies: Company[] = [
+        { link: "/Company/1", img: "/asmakRahal.png", name: "ASMAK RAHAL", description: "Leader dans l&apos;import, l&apos;export et la commercialisation de produits de la mer congelés", content: "Acteur majeur de l&apos;importation, de l&apos;exportation et de la commercialisation de produits de la mer." },
+        { link: "/Company/2", img: "PREST CONG", name: "PREST CONG", description: "Spécialiste du poisson congelé et du négoce international", content: "Exploitation d&apos;unités de froid et de congélation pour la conservation des produits alimentaires." },
+        { link: "/Company/3", img: "POINT VENTEs", name: "Marchés aux poissons", description: "Agadir & Tiznit Point de distribution central pour les produits frais et surgelés.", content: "Exploitation d&apos;unités de froid et de congélation pour la conservation des produits alimentaires." }
     ];
 
-    const immoPhase = [
+    const immoPhase: ImmoPhaseItem[] = [
         { img: '/design.jpg', phase1: 'Design', content: 'Phase de design et de conception des immeubles' },
         { img: '/engineers.png', phase2: 'Conception', content: 'Phase de conception des immeubles' },
         { img: '/construction.jpg', phase3: 'Construction', content: 'Phase de construction des immeubles' },
@@ -25,15 +41,15 @@ function Services() {
                 <div className="two-boxes flex flex-col md:flex-row gap-6 mt-10">
                     <div className="box1 bg-blue-50/50 p-6 rounded-lg mb-6">
                         <p className='text-3xl max-[415px]:text-2xl   text-gray-700'>
-                            Un pôle stratégique incarnant l’excellence et l’innovation dans le secteur halieutique,
-                            couvrant l’ensemble de la chaîne de valeur :
+                            Un pôle stratégique incarnant l&apos;excellence et l&apos;innovation dans le secteur halieutique,
+                            couvrant l&apos;ensemble de la chaîne de valeur :
                             pêche, approvisionnement, transformation, congélation, logistique, distribution et export.
                         </p>
                     </div>
                     <div className="box2 bg-blue-50/50 p-6 rounded-lg mb-6">
 
                         <p className='text-3xl max-[415px]:text-2xl text-gray-700'>
-                            Ce pôle s’appuie sur des entreprises disposant de plus de 35 années d’expertise,
+                            Ce pôle s&apos;appuie sur des entreprises disposant de plus de 35 années d&apos;expertise,
                             garantissant des produits conformes aux plus hauts standards de qualité,
                             traçabilité et sécurité alimentaire,
                             adaptés aux exigences des marchés nationaux et internationaux.
@@ -118,7 +134,9 @@ function Services() {
                                     <div className="relative overflow-hidden bg-blue-500 w-full h-[200px] ">
                                         <Image src={immo.img} className="absolute top-1/2 left-1/3 scale-[1.8]  -translate-x-1/2 -translate-y-1/2 object-contain  mix-blend-luminosity hover:mix-blend-normal w-[350px] h-[500px]" alt="dd" width={300} height={500} />
                                     </div>
-                                    <h5 className="text-xl leading-5 font-semibold mt-4 mb-5">{(immo as any)[`phase${index + 1}`]}</h5>
+                                    <h5 className="text-xl leading-5 font-semibold mt-4 mb-5">
+                                        {index === 0 ? immo.phase1 : index === 1 ? immo.phase2 : immo.phase3}
+                                    </h5>
                                     <p className="text-lg leading-5 font-sans font-light text-gray-600 ">{immo.content}</p>
                                 </div>
                             ))

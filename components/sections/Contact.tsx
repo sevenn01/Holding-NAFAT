@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Map from './Map';
@@ -31,7 +32,7 @@ export default function Contact() {
                 <div className="max-[1000px]:w-full w-2/3 h-full  max-[700px]:p-5 p-10  rounded-lg">
 
                     <p className="max-[700px]:text-[5vw] text-3xl text-gray-600 mb-8 font-light leading-snug">
-                        Une question, un projet ou une demande de collaboration ? <span className="font-bold text-blue-600">Nos experts </span> vous accompagnent pour bâtir l'avenir de vos ambitions.
+                        Une question, un projet ou une demande de collaboration ? <span className="font-bold text-blue-600">Nos experts </span> vous accompagnent pour bâtir l&apos;avenir de vos ambitions.
                     </p>
 
                     <form onSubmit={handleSubmit} className="space-y-6">

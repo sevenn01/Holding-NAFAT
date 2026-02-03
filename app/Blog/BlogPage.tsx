@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Card from '@/components/ui/card';
-import content from '../content';
+import content, { BlogPost } from '../content';
 import Image from 'next/image';
 import Skeleton from '@/components/ui/skeleton';
 
 export default function BlogPage() {
-    const [articles, setArticles] = useState<any[]>([])
+    const [articles, setArticles] = useState<BlogPost[]>([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export default function BlogPage() {
                 </div>
 
                 <p className="text-gray-500 text-center text-lg max-w-2xl mt-6">
-                    Votre source d'expertise sur l'excellence maritime, l'innovation industrielle et l'avenir de NAFAT HOLDING.
+                    Votre source d&apos;expertise sur l&apos;excellence maritime, l&apos;innovation industrielle et l&apos;avenir de NAFAT HOLDING.
                 </p>
             </header>
 

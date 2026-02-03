@@ -33,7 +33,7 @@ function PolitiqueConfidentialite() {
                 <div className="space-y-12 max-w-4xl">
                     <section>
                         <p className="leading-relaxed mb-6">
-                            NAFAT HOLDING s'engage à protéger la vie privée des utilisateurs de son site web.
+                            NAFAT HOLDING s&apos;engage à protéger la vie privée des utilisateurs de son site web.
                             Cette politique de confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations personnelles.
                         </p>
                     </section>
@@ -72,8 +72,8 @@ function PolitiqueConfidentialite() {
                     <section>
                         <h2 className="text-2xl font-bold text-[#0a2e5c] mb-4">4. Vos droits</h2>
                         <p className="leading-relaxed">
-                            Conformément à la loi 09-08 relative à la protection des personnes physiques à l'égard du traitement des données à caractère personnel,
-                            vous disposez d'un droit d'accès, de rectification et d'opposition au traitement de vos données personnelles.
+                            Conformément à la loi 09-08 relative à la protection des personnes physiques à l&apos;égard du traitement des données à caractère personnel,
+                            vous disposez d&apos;un droit d&apos;accès, de rectification et d&apos;opposition au traitement de vos données personnelles.
                             Pour exercer ces droits, vous pouvez nous contacter à : contact@nafat-holding.ma.
                         </p>
                     </section>
@@ -81,7 +81,7 @@ function PolitiqueConfidentialite() {
                     <section>
                         <h2 className="text-2xl font-bold text-[#0a2e5c] mb-4">5. Cookies</h2>
                         <p className="leading-relaxed">
-                            Ce site utilise des cookies pour améliorer l'expérience utilisateur. Vous pouvez configurer votre navigateur pour refuser les cookies,
+                            Ce site utilise des cookies pour améliorer l&apos;expérience utilisateur. Vous pouvez configurer votre navigateur pour refuser les cookies,
                             mais cela pourrait limiter certaines fonctionnalités du site.
                         </p>
                     </section>

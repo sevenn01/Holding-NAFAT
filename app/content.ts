@@ -1,4 +1,16 @@
-const content = [
+export interface BlogPost {
+  id: number;
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+  content: string;
+  video?: string;
+}
+
+const content: BlogPost[] = [
   {
     id: 1,
     title: "Frais vs Surgelé : Briser le Mythe",

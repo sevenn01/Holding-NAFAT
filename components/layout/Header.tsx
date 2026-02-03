@@ -134,7 +134,7 @@ function Header() {
                                 { name: 'About', href: '#about', num: '02', scroll: true },
                                 { name: 'Services', href: '/Services', num: '03' },
                                 { name: 'Blog', href: '/Blog', num: '04' },
-                                { name: 'Contact', href: '#contact', num: '05', scroll: true }
+                                { name: 'Contact', href: '/Contact', num: '05' }
                             ].map((item, i) => (
                                 <li key={i} className="group overflow-hidden">
                                     <div className={`flex items-end justify-between transition-all duration-500 delay-[${i * 100}ms] ${mobileMenu ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>

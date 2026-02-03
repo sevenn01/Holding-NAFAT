@@ -37,10 +37,10 @@ function Hero() {
   }, []);
 
   const rahalEvents = [
-    { img: '/asmakRahal.png', title: 'ASMAK RAHAL', description: 'Leader de l\'exportation maritime internationale.' },
-    { img: '/immo.png', title: 'IMMO NAFAT', description: 'Expertise immobilière et projets d\'exception.' },
+    { img: '/asmakRahal.png', title: 'ASMAK RAHAL', description: 'Leader de l&apos;exportation maritime internationale.' },
+    { img: '/immo.png', title: 'IMMO NAFAT', description: 'Expertise immobilière et projets d&apos;exception.' },
     { img: '/owner.png', title: 'PREST CONG', description: 'Maîtrise technologique de la chaîne du froid.' },
-    { img: '/owner.png', title: 'SEA FOOD MARKET', description: 'La fraîcheur de l\'océan à votre table.' },
+    { img: '/owner.png', title: 'SEA FOOD MARKET', description: 'La fraîcheur de l&apos;océan à votre table.' },
     { img: '/owner.png', title: 'NAFAT HOLDING', description: 'Vision stratégique et synergie multisectorielle.' },
   ]
   // Double for safe dragging
@@ -80,7 +80,7 @@ function Hero() {
         y: 60,
         opacity: 0,
         duration: item.duration,
-      }, item.delay);
+      }, item.delay as string | number);
     });
   }, { scope: heroRef });
 
@@ -102,7 +102,7 @@ function Hero() {
       ease: "none",
       repeat: -1,
       modifiers: {
-        x: gsap.utils.unitize((x) => {
+        x: gsap.utils.unitize((x: string) => {
           const val = parseFloat(x);
           return val % totalWidth;
         })
@@ -220,11 +220,14 @@ function Hero() {
         </div>
       </div>
 
-      <img className='absolute -z-10 w-[200rem] top-60 blur-3xl -translate-x-[0%] rotate-[-20deg]' src="line01.svg" alt="" />
-      <img
+      <Image className='absolute -z-10 w-[200rem] top-60 blur-3xl -translate-x-[0%] rotate-[-20deg]' src="/line01.svg" alt="" width={3200} height={1000} />
+      <Image
         className="owner-image absolute z-99 -bottom-300 left-1/2 translate-x-[-50%] rotate-[5deg] w-2xl pointer-events-none select-none user-select-none"
-        src="owner.png"
+        src="/owner.png"
         alt="Company owner"
+        width={800}
+        height={1000}
+        priority
       />
 
       {/* Carousel Container 

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import Image from 'next/image'
+import { BlogPost } from '@/app/content'
 
 
 function Card({
@@ -11,15 +12,7 @@ function Card({
     readTime,
     category,
     image,
-}: {
-    id: number;
-    title: string;
-    description: string;
-    date: string;
-    readTime: string;
-    category: string;
-    image: string;
-}) {
+}: BlogPost) {
     return (
         <article
             key={id}
@@ -66,7 +59,7 @@ function Card({
                 <div className="pt-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
                     Lire la suite
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </div>
             </div>

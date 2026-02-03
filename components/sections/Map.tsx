@@ -1,3 +1,4 @@
+"use client"
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 export default function Map() {

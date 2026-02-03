@@ -1,22 +1,25 @@
 "use client"
 import Card from '@/components/ui/card'
 import React, { useState } from 'react'
-import content from '../content'
+import content, { BlogPost } from '../content'
 import Link from 'next/link'
 
-function RelatedBlogs({ currentArticle }: { currentArticle: any }) {
-    const randomId = parseInt(10 * Math.random() as any)
-    const [articles, setArticles] = useState(content.filter((article) => article.id !== randomId))
+function RelatedBlogs({ currentArticle }: { currentArticle: BlogPost }) {
+    const [articles] = useState<BlogPost[]>(() => {
+        // Simple shuffle and filter to get related articles
+        return [...content]
+            .filter((article) => article.id !== currentArticle.id)
+            .sort(() => Math.random() - 0.5);
+    });
     return (
         <div className='mt-20 pt-20 border-t border-gray-200 border-border px-5'>
             <h2 className='text-2xl font-bold'>Articles liés</h2>
             <div className='mt-10 grid grid-cols-1 md:grid-cols-2 items-start justify-center lg:grid-cols-3 gap-15'>
                 {
                     articles.map((article, index) => (
-                        index < 3 && article.id !== currentArticle.id && (
+                        index < 3 && (
                             <Link key={article.id} href={`/Blog/${article.id}`} className="focus:outline-none">
                                 <article
-                                    key={article.id}
                                     className=" h-120 overflow-hidden  group relative flex flex-col sm:flex-row gap-10 sm:gap-12 items-center justify-center p-6 -mx-6 rounded-2xl hover:bg-muted/50 transition-colors duration-300"
                                 >
 

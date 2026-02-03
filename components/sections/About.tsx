@@ -19,9 +19,9 @@ function About() {
       {/* max-[886px]:w-[95%] w-[60%] max-[800px]:text-[6vw] text-5xl */}
       <h2 className="md:w-[20rem] max-[415px]:text-5xl text-6xl font-bold mb-4">À propos de Holding NAFAT</h2>
       <p className="max-[479px]:text-[8vw] max-[479px]:leading-[10vw] font-medium max-[886px]:w-[95%] w-2/3 md:mt-0 mt-6 max-[800px]:text-[6vw] text-5xl  text-gray-600 md:leading-14 leading-10">
-        Holding NAFAT est un groupe marocain structuré autour de pôles d’activités complémentaires,
-        avec une expertise reconnue dans les domaines des produits de la mer, du commerce et de l’immobilier.
-        Présent dans plusieurs villes du Royaume, le groupe s’appuie sur une vision à long terme,
+        Holding NAFAT est un groupe marocain structuré autour de pôles d&apos;activités complémentaires,
+        avec une expertise reconnue dans les domaines des produits de la mer, du commerce et de l&apos;immobilier.
+        Présent dans plusieurs villes du Royaume, le groupe s&apos;appuie sur une vision à long terme,
         une gouvernance rigoureuse et un fort ancrage local.
       </p>
 
