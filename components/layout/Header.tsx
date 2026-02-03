@@ -124,7 +124,7 @@ function Header() {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`mobile-menu fixed top-0  w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start pt-40 pb-20 px-10 overflow-hidden
+                <div className={`mobile-menu fixed top-0  w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start pt-30 pb-20 px-10 overflow-hidden
                     ${mobileMenu ? 'left-0' : 'left-full'}`}>
 
                     {/* Navigation Section */}
