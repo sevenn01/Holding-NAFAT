@@ -29,13 +29,6 @@ function Card({
             {/* Content */}
             <div className="flex-1 space-y-3">
 
-                <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
-                    <span className="font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">{category}</span>
-                    <span>•</span>
-                    <time>{date}</time>
-                    <span>•</span>
-                    <span>{readTime}</span>
-                </div>
 
                 <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">
                     <Link href={`/Blog/${id}`} className="focus:outline-none">
@@ -59,6 +52,13 @@ function Card({
                         </div>
                     )}
                     <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
+                    <span className="font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full">{category}</span>
+                    <span>•</span>
+                    <time>{date}</time>
+                    <span>•</span>
+                    <span>{readTime}</span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
                     {description}
