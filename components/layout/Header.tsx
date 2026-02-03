@@ -119,16 +119,16 @@ function Header() {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`mobile-menu fixed top-0 w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start py-20 px-10 overflow-y-auto
+                <div className={`mobile-menu fixed top-0 w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start pt-16 pb-10 px-10 overflow-hidden
                     ${mobileMenu ? 'left-0' : 'left-full'}`}>
 
-                    <div className="w-full flex justify-between items-center mb-16">
-                        <div className="font-black text-4xl bg-linear-200 from-blue-500 to-blue-200 text-transparent bg-clip-text">NH</div>
+                    <div className="w-full flex justify-between items-center mb-12">
+                        <div className="font-black text-3xl bg-linear-200 from-blue-500 to-blue-200 text-transparent bg-clip-text whitespace-nowrap">NAFAT HOLDING</div>
                     </div>
 
                     <div className="w-full flex flex-col gap-10">
-                        <div className="text-gray-400 text-xs font-bold tracking-[0.3em] uppercase mb-4 opacity-50">Navigation</div>
-                        <ul className="flex flex-col gap-8">
+                        <div className="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase mb-4 opacity-50">Navigation</div>
+                        <ul className="flex flex-col gap-6">
                             {[
                                 { name: 'Home', href: '/', num: '01' },
                                 { name: 'About', href: '#about', num: '02', scroll: true },
@@ -158,34 +158,13 @@ function Header() {
                         </ul>
                     </div>
 
-                    <div className="mt-auto pt-10 w-full flex flex-col gap-8 pb-10">
+                    <div className="mt-auto w-full flex flex-col gap-6">
                         <div className="h-[1px] w-full bg-gray-100"></div>
-                        <div className="flex justify-between items-center text-gray-400 text-sm">
+                        <div className="flex justify-between items-center text-gray-400 text-xs">
                             <span>NAFAT HOLDING © 2026</span>
                             <div className="flex gap-4">
                                 <span className="hover:text-blue-500 cursor-pointer transition-colors">LinkedIn</span>
                                 <span className="hover:text-blue-500 cursor-pointer transition-colors">Instagram</span>
-                            </div>
-                        </div>
-
-                        {/* Mobile Carousel Integration */}
-                        <div className="w-full overflow-hidden rounded-2xl border border-gray-100 bg-white p-3 shadow-sm">
-                            <div ref={carouselRef} className="carousel flex items-start justify-start gap-4">
-                                {events.map((event, index) => (
-                                    <div
-                                        key={index}
-                                        ref={index === 0 ? cardRef : null}
-                                        className="event w-[280px] h-[80px] bg-gray-50/50 rounded-xl p-3 flex items-center gap-4 shrink-0 overflow-hidden"
-                                    >
-                                        <div className="relative w-14 h-14 bg-white rounded-lg p-1 shrink-0">
-                                            <Image src={event.img} alt={event.title} fill className="object-contain" />
-                                        </div>
-                                        <div className="overflow-hidden">
-                                            <h4 className="text-sm font-bold text-gray-800 truncate">{event.title}</h4>
-                                            <p className="text-[10px] text-gray-400 line-clamp-2 leading-tight">{event.description}</p>
-                                        </div>
-                                    </div>
-                                ))}
                             </div>
                         </div>
                     </div>
