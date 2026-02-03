@@ -76,7 +76,7 @@ export const company_Content = [
             title: "Souveraineté technologique du froid",
             desc:
                 "Nos installations de pointe garantissent une intégrité thermique absolue, préservant chaque propriété nutritionnelle et organoleptique de vos produits avec une précision chirurgicale.",
-            image: "/asmakRahal/fish/Rouget grondin 1.png"
+            image: "/asmakRahal/cold_storage.png"
         },
         Speciality_Section: [
             {
