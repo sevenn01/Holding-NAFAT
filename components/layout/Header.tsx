@@ -119,7 +119,7 @@ function Header() {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`mobile-menu fixed top-0 w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start py-20 px-10 overflow-hidden
+                <div className={`mobile-menu fixed top-0 w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start py-20 px-10 overflow-y-auto
                     ${mobileMenu ? 'left-0' : 'left-full'}`}>
 
                     <div className="w-full flex justify-between items-center mb-16">
@@ -147,7 +147,7 @@ function Header() {
                                                 }
                                                 setMobileMenu(false);
                                             }}
-                                            className="text-5xl font-bold text-gray-800 hover:text-blue-500 transition-colors duration-300"
+                                            className="text-4xl sm:text-5xl font-bold text-gray-800 hover:text-blue-500 transition-colors duration-300"
                                         >
                                             {item.name}
                                         </a>
@@ -158,7 +158,7 @@ function Header() {
                         </ul>
                     </div>
 
-                    <div className="absolute bottom-10 left-10 right-10 flex flex-col gap-8">
+                    <div className="mt-auto pt-10 w-full flex flex-col gap-8 pb-10">
                         <div className="h-[1px] w-full bg-gray-100"></div>
                         <div className="flex justify-between items-center text-gray-400 text-sm">
                             <span>NAFAT HOLDING © 2026</span>

@@ -154,7 +154,7 @@ function Hero() {
     }
   };
   return (
-    <main ref={heroRef} className="hero h-screen relative w-full px-20 md:pt-30 pt-30 max-[479px]:pt-10 flex flex-col items-center justify-between bg-background text-foreground ">
+    <main ref={heroRef} className="hero h-screen relative w-full px-20 md:pt-30 pt-30 max-[479px]:pt-0 max-[650px]:pt-10 flex flex-col items-center justify-between bg-background text-foreground ">
       <div className="hero-content mb-20 text-center flex flex-col items-center justify-center gap-2 max-[479px]:mt-10">
         <div className="rate w-full mb-8 flex flex-col items-center justify-center text-1xl gap-2 max-[479px]:">
           <div className="stars align flex items-center justify-center gap-1 ">
