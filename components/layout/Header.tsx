@@ -106,6 +106,11 @@ function Header() {
 
                 </div>
 
+                {/* Mobile Logo */}
+                <div className="fixed top-8 left-8 z-[1000] max-[880px]:flex hidden font-black text-4xl bg-linear-200 from-blue-500 from-05% to-blue-200 text-transparent bg-clip-text">
+                    NH
+                </div>
+
                 {/* Toggle Button Container */}
                 <div
                     className="fixed top-8 right-8 z-[1000] max-[880px]:flex hidden flex-col items-center justify-center w-12 h-12 bg-white rounded-full shadow-lg border border-blue-50 cursor-pointer transition-all duration-300 active:scale-95"
@@ -119,13 +124,10 @@ function Header() {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`mobile-menu fixed top-0 w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start pt-16 pb-10 px-10 overflow-hidden
+                <div className={`mobile-menu fixed top-20 w-full h-[100vh] bg-white/95 backdrop-blur-xl z-[999] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col items-center justify-start pt-16 pb-20 px-10 overflow-hidden
                     ${mobileMenu ? 'left-0' : 'left-full'}`}>
 
-                    <div className="w-full flex justify-between items-center mb-12">
-                        <div className="font-black text-3xl bg-linear-200 from-blue-500 to-blue-200 text-transparent bg-clip-text whitespace-nowrap">NAFAT HOLDING</div>
-                    </div>
-
+                    {/* Navigation Section */}
                     <div className="w-full flex flex-col gap-10">
                         <div className="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase mb-4 opacity-50">Navigation</div>
                         <ul className="flex flex-col gap-6">
@@ -158,7 +160,7 @@ function Header() {
                         </ul>
                     </div>
 
-                    <div className="mt-auto w-full flex flex-col gap-6">
+                    <div className="mt-50 w-full flex flex-col gap-6">
                         <div className="h-[1px] w-full bg-gray-100"></div>
                         <div className="flex justify-between items-center text-gray-400 text-xs">
                             <span>NAFAT HOLDING © 2026</span>
