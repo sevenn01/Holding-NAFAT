@@ -160,7 +160,7 @@ function Header() {
                         </ul>
                     </div>
 
-                    <div className="mt-50 w-full flex flex-col gap-6">
+                    <div className="mt-auto w-full flex flex-col gap-6">
                         <div className="h-[1px] w-full bg-gray-100"></div>
                         <div className="flex justify-between items-center text-gray-400 text-xs">
                             <span>NAFAT HOLDING © 2026</span>
